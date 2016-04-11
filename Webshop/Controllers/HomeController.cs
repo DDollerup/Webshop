@@ -16,22 +16,6 @@ namespace Webshop.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            //Category category = new Category();
-            //category.Name = "Fisk";
-
-            //categoryFac.Add(category);
-
-            //Home h = new Home();
-            //h.Image = "fisk.jpg";
-            //h.Text = "aksjdlakjd";
-
-            //homeFac.Add(h);
-
-            //Category category = new Category();
-            //category.ID = 2;
-            //category.Name = "Hest";
-
-            //categoryFac.Update(category);
 
             return View();
         }

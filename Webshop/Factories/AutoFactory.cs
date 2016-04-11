@@ -110,5 +110,89 @@ namespace Webshop.Factories
             connection.Dispose();
             connection.Close();
         }
+
+        public T Get(int id)
+        {
+            string sqlQuery = string.Format("SELECT * FROM {0} WHERE ID = {1}", typeof(T).Name, id);
+
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            T result = GetGenericType();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    for (int i = 0; i < properties.Count; i++)
+                    {
+                        if (reader[i] == DBNull.Value) continue;
+                        properties[i].SetValue(result, reader[i]);
+                    }
+                }
+            }
+
+            cmd.Dispose();
+            connection.Dispose();
+            connection.Close();
+
+            return result;
+        }
+
+        public List<T> GetAll()
+        {
+            string sqlQuery = string.Format("SELECT * FROM {0}", typeof(T).Name);
+
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            T entity = default(T);
+
+            List<T> result = new List<T>();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    entity = GetGenericType();
+                    for (int i = 0; i < properties.Count; i++)
+                    {
+                        if (reader[i] == DBNull.Value) continue;
+                        properties[i].SetValue(entity, reader[i]);
+                    }
+                    result.Add(entity);
+                }
+            }
+
+            cmd.Dispose();
+            connection.Dispose();
+            connection.Close();
+
+            return result;
+        }
+
+        public void Delete(int id)
+        {
+            string sqlQuery = string.Format("DELETE FROM {0} WHERE ID = {1}", typeof(T).Name, id);
+
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+
+            cmd.ExecuteNonQuery();
+
+            cmd.Dispose();
+            connection.Dispose();
+            connection.Close();
+        }
     }
 }
