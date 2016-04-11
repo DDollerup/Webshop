@@ -234,7 +234,7 @@ namespace Webshop.Factories
                         // If the value from the database is Null, we continue
                         if (reader[i] == DBNull.Value) continue;
                         // Setting the property value as the value from the database
-                        properties[i].SetValue(result, reader[i]);
+                        properties[i].SetValue(entity, reader[i], null);
                     }
                     // Adding the entity to the List and continuing to the next field
                     result.Add(entity);

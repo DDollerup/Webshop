@@ -12,12 +12,13 @@ namespace Webshop.Controllers
     {
         HomeFactory homeFac = new HomeFactory();
         CategoryFactory categoryFac = new CategoryFactory();
+        ItemFactory itemFac = new ItemFactory();
 
         // GET: Home
         public ActionResult Index()
         {
-
-            return View();
+            List<Item> allItems = itemFac.GetAll();
+            return View(allItems);
         }
     }
 }

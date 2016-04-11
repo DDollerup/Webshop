@@ -1,7 +1,32 @@
-﻿
+﻿@using Webshop.Models.BaseModels;
+@model List<Item>
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Webshop</h2>
+<hr />
+<br />
 
+<div class="col-lg-12">
+    <div class="col-lg-12">
+        Info Bar
+    </div>
+    <div class="col-lg-12">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <a href="#">
+                    <div class="col-lg-3">
+                        <div>
+                            @item.Name
+                        </div>
+                        <div>
+                            <img src="~/Content/Images/Items/@item.Image" />
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</div>

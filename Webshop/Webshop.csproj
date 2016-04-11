@@ -108,11 +108,13 @@
     <Compile Include="Factories\AutoFactory.cs" />
     <Compile Include="Factories\CategoryFactory.cs" />
     <Compile Include="Factories\HomeFactory.cs" />
+    <Compile Include="Factories\ItemFactory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BaseModels\Category.cs" />
     <Compile Include="Models\BaseModels\Home.cs" />
+    <Compile Include="Models\BaseModels\Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
