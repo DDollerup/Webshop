@@ -77,5 +77,38 @@ namespace Webshop.Factories
             connection.Dispose();
             connection.Close();
         }
+
+        public void Update(T entity)
+        {
+            string sqlQuery = string.Format("UPDATE {0} SET ", typeof(T).Name);
+
+            for (int i = 0; i < properties.Count; i++)
+            {
+                PropertyInfo property = properties[i];
+                if (property.Name.ToLower().Contains("id") && i == 0) continue;
+
+                sqlQuery += property.Name + "=@" + property.Name;
+                sqlQuery += (i + 1 == properties.Count ? "" : ", ");
+            }
+
+            sqlQuery += string.Format(" WHERE ID = {0} ", properties[0].GetValue(entity));
+
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand(sqlQuery, connection);
+
+            for (int i = 0; i < properties.Count; i++)
+            {
+                if (properties[i].Name.ToLower().Contains("id") && i == 0) continue;
+                cmd.Parameters.AddWithValue("@" + properties[i].Name, properties[i].GetValue(entity));
+            }
+
+            cmd.ExecuteNonQuery();
+
+            cmd.Dispose();
+            connection.Dispose();
+            connection.Close();
+        }
     }
 }
