@@ -146,6 +146,11 @@ namespace Webshop.Factories
             connection.Close();
         }
 
+        /// <summary>
+        /// Get entity from the database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>The requested Entity by ID filtering</returns>
         public T Get(int id)
         {
             // Creating the SELECT SQL Statement, with {0} as Table name and {1} as the ID
@@ -190,6 +195,10 @@ namespace Webshop.Factories
             return result;
         }
 
+        /// <summary>
+        /// Gets all entities from the database
+        /// </summary>
+        /// <returns>Returns a list of T where T is a table from the database</returns>
         public List<T> GetAll()
         {
             // Creating the SELECT SQL Statement, with {0} as Table name
@@ -241,6 +250,10 @@ namespace Webshop.Factories
             return result;
         }
 
+        /// <summary>
+        /// Deletes entity by ID
+        /// </summary>
+        /// <param name="id">ID reference in the database</param>
         public void Delete(int id)
         {
             // Creating the Delete statement, where {0} is the table name, and {1} is the ID parameter from this method
