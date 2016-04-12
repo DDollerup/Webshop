@@ -1,0 +1,31 @@
+﻿@using Webshop.Models.BaseModels;
+@model List<Item>
+
+@{
+    ViewBag.Title = "Item";
+}
+
+<h2>Item Administration</h2>
+<hr />
+
+<div class="col-lg-12">
+    <table class="table table-striped">
+        @foreach (Item item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Price
+                </td>
+                <td>
+                    <a href="/WebshopAdmin/WSAdmin/EditItem/@item.ID"><strong>E</strong></a>
+                </td>
+                <td>
+                    <a href="/WebshopAdmin/WSAdmin/DeleteItemSubmit/@item.ID"><strong>D</strong></a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

@@ -91,11 +91,23 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Items\Obama.jpg" />
+    <Content Include="Content\Images\Items\shoe1.jpg" />
+    <Content Include="Content\Images\Items\shoe2.jpg" />
+    <Content Include="Content\Images\Items\shoe3.jpg" />
+    <Content Include="Content\Images\Items\shoe4.png" />
+    <Content Include="Content\Images\Items\uglyShooooe.jpg" />
+    <Content Include="Content\Images\Items\WhiteHouse.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\WebshopAdmin\Views\web.config" />
+    <Content Include="Areas\WebshopAdmin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\WebshopAdmin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\WebshopAdmin\Views\WSAdmin\Index.cshtml" />
+    <Content Include="Areas\WebshopAdmin\Views\WSAdmin\Item.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -104,6 +116,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\WebshopAdmin\Controllers\WSAdminController.cs" />
+    <Compile Include="Areas\WebshopAdmin\WebshopAdminAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Factories\AutoFactory.cs" />
     <Compile Include="Factories\CategoryFactory.cs" />
@@ -136,6 +150,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\WebshopAdmin\Models\" />
+    <Folder Include="Content\Images\Layout\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
