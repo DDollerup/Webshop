@@ -11,6 +11,7 @@ namespace Webshop.Areas.WebshopAdmin.Controllers
     public class WSAdminController : Controller
     {
         ItemFactory itemFac = new ItemFactory();
+        CategoryFactory categoryFac = new CategoryFactory();
 
 
         public ActionResult Index()
@@ -38,12 +39,15 @@ namespace Webshop.Areas.WebshopAdmin.Controllers
 
         public ActionResult EditItem(int id)
         {
-            return View();
+            ViewBag.Categories = categoryFac.GetAll();
+            Item itemToEdit = itemFac.Get(id);
+            return View(itemToEdit);
         }
 
         [HttpPost]
         public ActionResult EditItemSubmit(Item item)
         {
+            itemFac.Update(item);
             return RedirectToAction("Item");
         }
 

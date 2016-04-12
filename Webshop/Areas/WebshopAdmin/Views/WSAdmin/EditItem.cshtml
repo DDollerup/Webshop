@@ -1,0 +1,90 @@
+﻿@using Webshop.Models.BaseModels;
+@model Item
+@{
+    ViewBag.Title = "Edit " + Model.Name;
+}
+
+<h2>Edit @Model.Name</h2>
+
+<form action="/WebshopAdmin/WSAdmin/EditItemSubmit" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="ID" value="@Model.ID" />
+    <table class="table table-bordered">
+        <tr>
+            <td>
+                Name:
+            </td>
+            <td>
+                <input type="text" name="Name" value="@Model.Name" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Category:
+            </td>
+            <td>
+                <select name="CategoryID">
+                    <option value="0">Select Category...</option>
+                    @foreach (var category in (ViewBag.Categories as List<Category>))
+                    {
+                        if (Model.CategoryID == category.ID)
+                        {
+                            <option value="@category.ID" selected="selected">@category.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@category.ID">@category.Name</option>
+                        }
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Description:
+            </td>
+            <td>
+                <textarea name="Description" rows="10" cols="30">
+                    @Model.Description
+                </textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Price:
+            </td>
+            <td>
+                <input type="text" name="Price" value="@Model.Price" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                On Sale:
+            </td>
+            <td>
+                <input type="checkbox" name="OnSale" value="@Model.OnSale" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Sale Price:
+            </td>
+            <td>
+                <input type="text" name="SalePrice" value="@Model.SalePrice" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Image:
+            </td>
+            <td>
+                <input type="text" name="Image" value="@Model.Image" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Save" />
+            </td>
+        </tr>
+    </table>
+</form>
+

@@ -108,6 +108,7 @@
     <Content Include="Areas\WebshopAdmin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\WebshopAdmin\Views\WSAdmin\Index.cshtml" />
     <Content Include="Areas\WebshopAdmin\Views\WSAdmin\Item.cshtml" />
+    <Content Include="Areas\WebshopAdmin\Views\WSAdmin\EditItem.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
