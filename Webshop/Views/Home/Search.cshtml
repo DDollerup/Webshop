@@ -1,0 +1,31 @@
+﻿@model List<Webshop.Models.BaseModels.Item>
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+
+<div class="col-lg-12">
+    <div class="row">
+        @if (ViewBag.MSG != null)
+        {
+            <p>
+                @ViewBag.MSG
+            </p>
+        }
+        @foreach (var item in Model)
+            {
+            <a href="#">
+                <div class="col-lg-3">
+                    <div>
+                        @item.Name
+                    </div>
+                    <div>
+                        <img src="~/Content/Images/Items/@item.Image" class="img-responsive" />
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+</div>

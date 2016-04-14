@@ -8,7 +8,7 @@ using Webshop.Models.BaseModels;
 
 namespace Webshop.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         HomeFactory homeFac = new HomeFactory();
         CategoryFactory categoryFac = new CategoryFactory();
