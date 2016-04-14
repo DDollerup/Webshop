@@ -10,7 +10,15 @@
 
 <div class="col-lg-12">
     <div class="col-lg-12">
-        Info Bar
+        <form action="/Home/FilterItems" method="post">
+            <select name="id">
+                @foreach (var category in (ViewBag.Categories as List<Category>))
+                {
+                    <option value="@category.ID">@category.Name</option>
+                }
+            </select>
+            <input type="submit" value="Search" />
+        </form>
     </div>
     <div class="col-lg-12">
         <div class="row">
